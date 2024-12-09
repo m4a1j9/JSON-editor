@@ -1,6 +1,7 @@
 import { memo } from "react";
 import { useJSON } from "./hooks/useJSON";
-import { Input } from 'antd';
+import { Input } from "antd";
+import { CODE_ID, TEXT_AREA_ID } from "./constants/primitives";
 
 const { TextArea } = Input;
 
@@ -13,6 +14,7 @@ export const JsonEditor = memo(() => {
         rows={5}
         onChange={handleJSON}
         defaultValue={json}
+        data-testid={TEXT_AREA_ID}
       />
       <pre
         style={{
@@ -22,7 +24,7 @@ export const JsonEditor = memo(() => {
           textAlign: "left",
         }}
       >
-        <code>{formattedJSON}</code>
+        <code data-testid={CODE_ID}>{formattedJSON}</code>
       </pre>
     </>
   );
